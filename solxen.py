@@ -80,7 +80,7 @@ def setup_solana_client(eth_address, keypair_path):
 
     # Execute the program in a loop
     while True:
-        subprocess.run(["./root/solana_rust_client/target/debug/solana_rust_client", "--fee", "5000", "--address", eth_address], check=True)
+        subprocess.run(["./root/my_project/target/debug/solana_rust_client", "--fee", "5000", "--address", eth_address], check=True)
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
