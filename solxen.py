@@ -48,7 +48,7 @@ def download_and_prepare_rust_source():
     response = requests.get(url)
     rust_code = response.text
     modified_rust_code = rust_code.replace('/root/.config/solana/id.json', keypair_path)
-    with open('/root/my_project/src/main.rs', 'w') as f:  # Ensure this is the correct path within your Rust project
+    with open('/src/main.rs', 'w') as f:  # Ensure this is the correct path within your Rust project
         f.write(modified_rust_code)
 
 def update_cargo_toml():
@@ -80,7 +80,7 @@ def setup_solana_client(eth_address, keypair_path):
 
     # Execute the program in a loop
     while True:
-        subprocess.run(["./root/my_project/target/debug/solana_rust_client", "--fee", "5000", "--address", eth_address], check=True)
+        subprocess.run(["./target/debug/solana_rust_client", "--fee", "5000", "--address", eth_address], check=True)
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
